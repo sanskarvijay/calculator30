@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NOVASYS | Login & Converters</title>
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="solar-icon">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSi30_qOW6isZOqxlZotl7Q4Pv-xC9_eDKw&s" 
+           alt="Photo Icon" 
+           style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+    </div>
+    <div class="welcome-text" id="welcomeText">Welcome to NOVASYS</div>
+    <div class="sun-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fbc02d" style="width: 60%; height: 60%;">
+        <path stroke-linecap="round" stroke-linejoin="round" 
+          d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-2.227l-1.591 1.591M3 12h2.25m.386-6.364l1.591 1.591M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="container" id="loginPage">
+    <h2>Login / Register</h2>
+    <label>Username</label>
+    <input type="text" id="username" placeholder="Enter username">
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password">
+    <div class="small-row">
+      <button class="btn btn-primary" onclick="handleLogin()">Continue</button>
+      <button class="btn btn-reset" onclick="resetPassword()">Reset Password</button>
+    </div>
+    <p id="loginMessage" style="color:#d32f2f; font-size:13px; margin-top:8px;"></p>
+  </div>
+
+  <!-- CALCULATORS -->
+  <div id="calculatorSection" style="display:none; width: 100%; max-width: 480px;">
+
+    <!-- Ribbon -->
+    <div class="container ribbon-box">
+      <h2>Half-Cut Cell with Ribbon</h2>
+      <label>Weight (kg)</label>
+      <input type="number" id="weightRibbon" min="0.01" step="0.01">
+      <div class="small-row">
+        <button class="btn btn-primary" onclick="calculateRibbon()">Calculate</button>
+        <button class="btn" onclick="resetRibbon()">Reset</button>
+      </div>
+      <p class="result">Number of Half-Cut Cells: <span id="cellsWithRibbon"></span></p>
+      <p class="result">Ribbon Weight (kg): <span id="ribbonWeight"></span></p>
+    </div>
+
+    <!-- CR -->
+    <div class="container cr-box">
+      <h2>CR Cell</h2>
+      <label>Weight (kg)</label>
+      <input type="number" id="weightCR" min="0.01" step="0.01">
+      <div class="small-row">
+        <button class="btn btn-primary" onclick="calculateCR()">Calculate</button>
+        <button class="btn" onclick="resetCR()">Reset</button>
+      </div>
+      <p class="result">Number of Half-Cut Cells: <span id="cellsWithoutRibbon"></span></p>
+    </div>
+
+    <!-- Potting -->
+    <div class="container potting-box">
+      <h2>Potting (5 : 1)</h2>
+      <label>Total Potting Weight (kg)</label>
+      <input type="number" id="pottingTotal" min="0.001" step="0.001">
+      <div class="small-row">
+        <button class="btn btn-primary" onclick="calculatePotting()">Calculate</button>
+        <button class="btn" onclick="resetPotting()">Reset</button>
+      </div>
+      <p class="result">Potting A (kg): <span id="pottingA"></span></p>
+      <p class="result">Potting B (kg): <span id="pottingB"></span></p>
+    </div>
+
+    <!-- Backsheet -->
+    <div class="container backsheet-box">
+      <h2>Backsheet Conversion</h2>
+      <label>Weight (kg)</label>
+      <input type="number" id="backsheetWeight" min="0.001" step="0.001">
+      <div class="small-row">
+        <button class="btn btn-primary" onclick="calculateBacksheet()">Calculate</button>
+        <button class="btn" onclick="resetBacksheet()">Reset</button>
+      </div>
+      <p class="result">Area (m²): <span id="backsheetArea"></span></p>
+    </div>
+
+    <!-- EVA -->
+    <div class="container eva-box">
+      <h2>EVA Conversion</h2>
+      <label>Weight (kg)</label>
+      <input type="number" id="evaWeight" min="0.001" step="0.001">
+      <div class="small-row">
+        <button class="btn btn-primary" onclick="calculateEVA()">Calculate</button>
+        <button class="btn" onclick="resetEVA()">Reset</button>
+      </div>
+      <p class="result">Area (m²): <span id="evaArea"></span></p>
+    </div>
+
+    <!-- Logout -->
+    <div class="container" style="text-align:center;">
+      <button class="btn btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Link external JS -->
+  <script src="script.js"></script>
+</body>
+</html>
